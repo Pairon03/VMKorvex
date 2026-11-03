@@ -151,7 +151,7 @@ button.chip i { font-style: normal; opacity: .75; font-size: 12px; }
   .topo-cel { display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 20; padding: calc(10px + env(safe-area-inset-top, 0px)) var(--gr) 10px var(--gl); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   .topo-cel .marca { margin-right: auto; }
   .conteudo { padding: 18px var(--gr) calc(96px + env(safe-area-inset-bottom, 0px)) var(--gl); }
-  .baixo { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; padding: 6px var(--gr) calc(6px + env(safe-area-inset-bottom, 0px)) var(--gl); background: color-mix(in srgb, var(--side) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+  .baixo { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; padding: 6px var(--gr) calc(6px + env(safe-area-inset-bottom, 0px)) var(--gl); background: color-mix(in srgb, var(--side) 92%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
   .baixo button { display: grid; justify-items: center; gap: 2px; min-height: 52px; padding: 6px 0; border: 0; background: none; color: var(--muted); font-size: 11px; font-weight: 700; border-radius: 12px; position: relative; }
   .baixo button svg { width: 22px; height: 22px; }
   .baixo button[aria-current="page"] { color: var(--ink); }
@@ -356,6 +356,32 @@ button.chip i { font-style: normal; opacity: .75; font-size: 12px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 1ms !important; }
 }
+
+/* Prospecção */
+.st-a_contatar { --c: #7E8191; }
+.st-contatado { --c: #5BA8FF; }
+.st-respondeu { --c: #9B4DFF; }
+.st-interessado { --c: #FFB547; }
+.st-cliente { --c: #5EE6A8; }
+.st-sem_interesse { --c: #FF2D4F; }
+.prog { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+.prog .trilho { flex: 1 1 200px; max-width: 360px; height: 8px; border-radius: 99px; background: var(--surface-3); overflow: hidden; }
+.prog .trilho i { display: block; height: 100%; background: linear-gradient(90deg, #5BA8FF, #5EE6A8); }
+.prog b { color: var(--ink); }
+.leads { display: grid; gap: 10px; }
+.lead { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 14px; border-radius: 14px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+.lead--feito { opacity: .62; }
+.lead--feito:hover { opacity: 1; }
+.feito { display: grid; place-items: center; width: 30px; height: 30px; margin-top: 2px; border-radius: 9px; border: 0; background: var(--surface-3); box-shadow: inset 0 0 0 1.5px var(--line); color: transparent; font-size: 16px; font-weight: 900; cursor: pointer; }
+.feito[aria-checked="true"] { background: #5EE6A8; color: #0B0D14; box-shadow: 0 0 12px color-mix(in srgb, #5EE6A8 60%, transparent); }
+.lead h3 { font-size: 16px; font-weight: 800; line-height: 1.3; overflow-wrap: anywhere; }
+.lead .meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.lead .motivo { font-size: 14px; margin-top: 8px; }
+.lead .acoes-l { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.lead .lado-l { display: grid; gap: 6px; justify-items: end; }
+.lead select.in { min-height: 34px; padding: 0 10px; font-size: 13px; width: auto; }
+.lead .nota { margin-top: 10px; width: 100%; min-height: 0; font-size: 14px; }
+@media (max-width: 640px) { .lead { grid-template-columns: auto minmax(0, 1fr); } .lead .lado-l .selo { display: none; } .lead .lado-l { grid-column: 1 / -1; justify-items: start; grid-auto-flow: column; justify-content: start; align-items: center; } }
 </style>
 </head>
 <body>
@@ -364,6 +390,7 @@ button.chip i { font-style: normal; opacity: .75; font-size: 12px; }
   <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></symbol>
   <symbol id="i-ped" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z"/><path d="M16 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2"/><path d="M8 12h8M8 16h5"/></symbol>
   <symbol id="i-preco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9Z"/><circle cx="8" cy="8" r="1.5"/></symbol>
+  <symbol id="i-alvo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
   <symbol id="i-sair" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 17l-5-5 5-5M5 12h11"/></symbol>
   <symbol id="i-sino" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
   <symbol id="i-lapis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="M13.5 6.5l4 4"/></symbol>
@@ -635,6 +662,69 @@ button.chip i { font-style: normal; opacity: .75; font-size: 12px; }
         <p v-if="!lista.length" class="cartao vazio">{{ busca ? 'Nada encontrado.' : 'Nenhum pedido aqui.' }}</p>
       </template>
 
+      <!-- ===== Prospecção ===== -->
+      <template v-else-if="aba==='leads'">
+        <div class="cabeca">
+          <div>
+            <p class="k">Prospecção</p>
+            <h1>Negócios para contatar</h1>
+          </div>
+          <div class="cabeca__acoes">
+            <button class="btn btn--main" @click="abrirLead()" :disabled="semLeads"><span aria-hidden="true">+</span> Novo lead</button>
+          </div>
+        </div>
+        <p v-if="semLeads" class="cartao vazio">A tabela de prospecção ainda não existe no banco. Rode o <b>supabase/painel.sql</b> de novo no SQL Editor do Supabase e atualize a página.</p>
+        <template v-else>
+          <div class="prog" v-if="leadsBase.length">
+            <span class="trilho"><i :style="{width: leadsFeitos/leadsBase.length*100+'%'}"></i></span>
+            <span><b>{{ leadsFeitos }}</b> de {{ leadsBase.length }} contatados<template v-if="regiaoLead"> em {{ regiaoLead }}</template> · <b>{{ leadsBase.filter(l=>['interessado','cliente'].includes(l.status)).length }}</b> interessados ou clientes</span>
+          </div>
+          <div class="filtros">
+            <label class="busca"><span class="sr">Buscar</span>
+              <input class="in" type="search" v-model="buscaLead" placeholder="Buscar nome, nicho ou bairro">
+            </label>
+            <label><span class="sr">Região</span>
+              <select class="in" v-model="regiaoLead" style="min-height:42px" aria-label="Região">
+                <option value="">Todas as regiões</option>
+                <option v-for="r in regioes" :key="r" :value="r">{{ r }}</option>
+              </select>
+            </label>
+          </div>
+          <div class="filtros filtros--rola" role="group" aria-label="Filtrar por situação">
+            <button class="chip" :aria-pressed="filtroLead==='todos'" @click="filtroLead='todos'">Todos <i>{{ leadsBase.length }}</i></button>
+            <button v-for="s in LEAD_STATUS" :key="s.v" class="chip" :class="'st-'+s.v" :aria-pressed="filtroLead===s.v" @click="filtroLead=s.v">
+              <span class="dot"></span>{{ s.t }} <i>{{ leadsBase.filter(l=>l.status===s.v).length }}</i>
+            </button>
+          </div>
+          <div class="leads" v-if="listaLeads.length">
+            <article v-for="l in listaLeads" :key="l.id" class="lead" :class="{'lead--feito': l.status!=='a_contatar'}">
+              <button class="feito" role="checkbox" :aria-checked="l.status!=='a_contatar'" :title="l.status==='a_contatar' ? 'Marcar como contatado' : 'Voltar para a contatar'" @click="alternarContato(l)">✓</button>
+              <div style="min-width:0">
+                <h3>{{ l.nome }}</h3>
+                <p class="meta">{{ [l.nicho, l.bairro, l.regiao && l.regiao!==l.bairro ? 'região '+l.regiao : ''].filter(Boolean).join(' · ') }}<template v-if="l.contatado_em"> · contatado em {{ dataCurta(l.contatado_em) }}</template></p>
+                <p class="motivo" v-if="l.motivo">{{ l.motivo }}<span class="muted" v-if="l.site"> (hoje: {{ l.site }})</span></p>
+                <div class="acoes-l">
+                  <a v-if="l.whatsapp" class="btn btn--sm" :href="zapLead(l)" target="_blank" rel="noopener">WhatsApp</a>
+                  <a v-if="l.telefone && l.telefone!==l.whatsapp" class="btn btn--sm" :href="'tel:'+l.telefone.replace(/\D/g,'')">{{ l.telefone }}</a>
+                  <a v-if="l.instagram" class="btn btn--sm" :href="linkInsta(l.instagram)" target="_blank" rel="noopener">Instagram</a>
+                  <a class="btn btn--sm" :href="mapsLead(l)" target="_blank" rel="noopener">Ver no Maps</a>
+                  <button class="btn btn--sm" @click="abrirLead(l)">Editar</button>
+                </div>
+                <textarea class="in nota" rows="1" :value="l.notas" placeholder="Anotações (o que respondeu, quando chamar de novo…)" @change="salvarLead(l, 'notas', $event.target.value)" :aria-label="'Anotações de '+l.nome"></textarea>
+              </div>
+              <div class="lado-l">
+                <span class="selo" :class="'st-'+l.status"><span class="dot"></span>{{ rotLead(l.status) }}</span>
+                <select class="in" :value="l.status" @change="salvarLead(l, 'status', $event.target.value)" :aria-label="'Situação de '+l.nome">
+                  <option v-for="s in LEAD_STATUS" :key="s.v" :value="s.v">{{ s.t }}</option>
+                </select>
+                <button v-if="l.status==='interessado' || l.status==='cliente'" class="btn btn--sm" @click="virarPedido(l)">Criar pedido</button>
+              </div>
+            </article>
+          </div>
+          <p v-else class="cartao vazio">{{ buscaLead || filtroLead!=='todos' || regiaoLead ? 'Nada encontrado com esse filtro.' : 'Nenhum lead ainda. Use "Novo lead" para cadastrar.' }}</p>
+        </template>
+      </template>
+
       <!-- ===== Preços ===== -->
       <template v-else>
         <div class="cabeca">
@@ -855,6 +945,37 @@ button.chip i { font-style: normal; opacity: .75; font-size: 12px; }
       </form>
     </transition>
 
+    <!-- Novo / editar lead -->
+    <transition name="esm"><div v-if="formLead" class="fundo" style="z-index:49" @click="formLead=null"></div></transition>
+    <transition name="esm">
+      <form v-if="formLead" class="janela" @submit.prevent="salvarFormLead">
+        <h2>{{ formLead.id ? 'Editar lead' : 'Novo lead' }}</h2>
+        <label class="campo"><span>Nome do negócio</span><input class="in" v-model.trim="formLead.nome" required></label>
+        <div class="linha2">
+          <label class="campo"><span>Nicho</span><input class="in" v-model.trim="formLead.nicho" placeholder="Ex.: Barbearia" list="nichos"></label>
+          <label class="campo"><span>Bairro</span><input class="in" v-model.trim="formLead.bairro"></label>
+        </div>
+        <datalist id="nichos"><option v-for="n in nichos" :key="n" :value="n"></option></datalist>
+        <div class="linha2">
+          <label class="campo"><span>Região</span><input class="in" v-model.trim="formLead.regiao" placeholder="Ex.: Ouro Verde" list="regioes"></label>
+          <label class="campo"><span>Instagram</span><input class="in" v-model.trim="formLead.instagram" placeholder="@perfil"></label>
+        </div>
+        <datalist id="regioes"><option v-for="r in regioes" :key="r" :value="r"></option></datalist>
+        <div class="linha2">
+          <label class="campo"><span>WhatsApp</span><input class="in" v-model.trim="formLead.whatsapp" inputmode="tel"></label>
+          <label class="campo"><span>Telefone fixo</span><input class="in" v-model.trim="formLead.telefone" inputmode="tel"></label>
+        </div>
+        <label class="campo"><span>Site que tem hoje</span><input class="in" v-model.trim="formLead.site" placeholder="Vazio = nenhum"></label>
+        <label class="campo"><span>Por que é um bom lead</span><textarea class="in" v-model.trim="formLead.motivo" rows="2" placeholder="Ex.: 80 avaliações no Maps e nenhum site"></textarea></label>
+        <p v-if="formLead.erro" class="erro">{{ formLead.erro }}</p>
+        <div class="acoes">
+          <button v-if="formLead.id" class="btn" type="button" style="margin-right:auto" @click="apagarLead">Excluir</button>
+          <button class="btn" type="button" @click="formLead=null">Cancelar</button>
+          <button class="btn btn--main" :disabled="formLead.ocupado">{{ formLead.ocupado ? 'Salvando…' : 'Salvar' }}</button>
+        </div>
+      </form>
+    </transition>
+
     <!-- Foto em tela cheia -->
     <div v-if="luz!==null && arquivos[luz]" class="luz" @click.self="luz=null">
       <div class="luz__topo">
@@ -904,8 +1025,19 @@ const FILTROS = [
 const ABAS = [
   {v:'dash', t:'Dashboard', i:'i-dash'},
   {v:'pedidos', t:'Pedidos', i:'i-ped'},
+  {v:'leads', t:'Prospecção', i:'i-alvo'},
   {v:'precos', t:'Preços', i:'i-preco'}
 ];
+const LEAD_STATUS = [
+  {v:'a_contatar', t:'A contatar'},
+  {v:'contatado', t:'Contatado'},
+  {v:'respondeu', t:'Respondeu'},
+  {v:'interessado', t:'Interessado'},
+  {v:'cliente', t:'Virou cliente'},
+  {v:'sem_interesse', t:'Sem interesse'}
+];
+// mensagem que o botão WhatsApp já deixa escrita (dá para editar antes de enviar)
+const MSG_LEAD = l => `Oi, tudo bem? Sou da Korvex, aqui de Campinas. Pesquisei ${l.nicho ? l.nicho.toLowerCase() : 'negócios'}${l.bairro ? ' no ' + l.bairro : ''} no Google e o ${l.nome} não aparece com site, então quem procura acaba indo para a concorrência. A gente faz landing page com botão direto para o seu WhatsApp. Posso te mandar um exemplo de como ficaria?`;
 const PERIODOS = [{v:6, t:'6 meses'}, {v:12, t:'12 meses'}];
 const SERVICOS = ['Landing page','Site','Instagram','Marca e logo'];
 // séries dos gráficos: ordem fixa, validada para daltonismo no fundo escuro
@@ -1058,6 +1190,12 @@ const app = createApp({
     const tarefas = ref([]);
     const observacoes = ref([]);
     const precos = ref([]);
+    const leads = ref([]);
+    const semLeads = ref(false);
+    const filtroLead = ref('todos');
+    const buscaLead = ref('');
+    const regiaoLead = ref('');
+    const formLead = ref(null);
     const aba = ref('dash');
     const periodo = ref(6);
     const filtro = ref('todos');
@@ -1178,13 +1316,15 @@ const app = createApp({
     const numeros = x => Object.assign(x, {servicos: x.servicos || [], fotos: x.fotos || [], recebido: Number(x.recebido)||0,
       valor: x.valor==null ? null : Number(x.valor), custo: x.custo==null ? null : Number(x.custo)});
     async function recarregar(){
-      const [b, t, o, p, e] = await Promise.all([
+      const [b, t, o, p, e, l] = await Promise.all([
         api.get('briefings', `select=${CAMPOS}&order=created_at.desc`),
         api.get('tarefas', 'select=*&order=ordem.asc,criada_em.asc'),
         api.get('observacoes', 'select=*&order=criada_em.asc'),
         api.get('precos', 'select=*&order=ordem.asc,servico.asc'),
-        api.get('equipe', 'select=user_id,nome')
+        api.get('equipe', 'select=user_id,nome'),
+        api.get('leads', 'select=*&order=criado_em.asc').catch(e=>{ console.error(e); return null; })   // null: painel.sql novo ainda não rodou
       ]);
+      semLeads.value = !l; leads.value = l || [];
       briefings.value = b.map(numeros);
       tarefas.value = t; observacoes.value = o; equipe.value = e;
       precos.value = p.map(x=>Object.assign(x, {valor: Number(x.valor)||0}));
@@ -1473,6 +1613,54 @@ const app = createApp({
       catch(e){ precos.value.splice(i, 0, p); falha(e); }
     }
 
+    /* --- prospecção --- */
+    const rotLead = v => (LEAD_STATUS.find(s=>s.v===v) || LEAD_STATUS[0]).t;
+    const unicos = campo => [...new Set(leads.value.map(l=>l[campo]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    const regioes = computed(()=>unicos('regiao'));
+    const nichos = computed(()=>unicos('nicho'));
+    const leadsBase = computed(()=>leads.value.filter(l=>!regiaoLead.value || l.regiao===regiaoLead.value));
+    const leadsFeitos = computed(()=>leadsBase.value.filter(l=>l.status!=='a_contatar').length);
+    const listaLeads = computed(()=>{
+      const q = buscaLead.value.trim().toLowerCase();
+      return leadsBase.value
+        .filter(l=>filtroLead.value==='todos' || l.status===filtroLead.value)
+        .filter(l=>!q || [l.nome, l.nicho, l.bairro, l.regiao, l.notas].join(' ').toLowerCase().includes(q))
+        .sort((a,b)=>(a.status==='a_contatar' ? 0 : 1) - (b.status==='a_contatar' ? 0 : 1));   // quem falta contatar primeiro
+    });
+    const zapLead = l => linkZap(l.whatsapp) + '?text=' + encodeURIComponent(MSG_LEAD(l));
+    const mapsLead = l => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent([l.nome, l.bairro, 'Campinas SP'].filter(Boolean).join(' '));
+    async function salvarLead(l, campo, valor){
+      if(l[campo]===valor) return;
+      const antes = {...l}; l[campo] = valor;
+      try{ const [n] = await api.mudar('leads', l.id, {[campo]: valor}); Object.assign(l, n); if(campo==='status') avisar(rotLead(valor)); }
+      catch(e){ Object.assign(l, antes); falha(e); }
+    }
+    const alternarContato = l => salvarLead(l, 'status', l.status==='a_contatar' ? 'contatado' : 'a_contatar');
+    function abrirLead(l){
+      formLead.value = l
+        ? {id:l.id, nome:l.nome, nicho:l.nicho, bairro:l.bairro, regiao:l.regiao, instagram:l.instagram, whatsapp:l.whatsapp, telefone:l.telefone, site:l.site, motivo:l.motivo, erro:'', ocupado:false}
+        : {nome:'', nicho:'', bairro:'', regiao: regiaoLead.value, instagram:'', whatsapp:'', telefone:'', site:'', motivo:'', erro:'', ocupado:false};
+    }
+    async function salvarFormLead(){
+      const f = formLead.value; f.erro = ''; f.ocupado = true;
+      const dados = {nome:f.nome, nicho:f.nicho, bairro:f.bairro, regiao:f.regiao, instagram:f.instagram, whatsapp:f.whatsapp, telefone:f.telefone, site:f.site, motivo:f.motivo};
+      try{
+        if(f.id){ const [n] = await api.mudar('leads', f.id, dados); Object.assign(leads.value.find(x=>x.id===f.id), n); avisar('Lead salvo'); }
+        else{ const [n] = await api.inserir('leads', Object.assign(dados, {fonte:'cadastrado no painel'})); leads.value.push(n); filtroLead.value = 'todos'; avisar('Lead adicionado'); }
+        formLead.value = null;
+      }catch(e){ console.error(e); f.erro = e.status===409 ? 'Já existe um lead com esse nome nesse bairro.' : 'Não deu para salvar. Confira a internet e tente de novo.'; f.ocupado = false; }
+    }
+    async function apagarLead(){
+      const f = formLead.value;
+      if(!confirm(`Excluir "${f.nome}" da prospecção?`)) return;
+      try{ await api.apagar('leads', 'id=eq.' + f.id); leads.value = leads.value.filter(x=>x.id!==f.id); formLead.value = null; avisar('Lead excluído'); }
+      catch(e){ falha(e); }
+    }
+    function virarPedido(l){
+      if(l.status!=='cliente') salvarLead(l, 'status', 'cliente');
+      form.value = {empresa:l.nome, nome:l.nome, whatsapp:l.whatsapp || l.telefone, email:'', servicos:[], status:'proposta', valor:'', erro:'', ocupado:false};
+    }
+
     /* --- cadastrar, editar e excluir --- */
     function abrirNovo(){ form.value = {empresa:'', nome:'', whatsapp:'', email:'', servicos:[], status:'proposta', valor:'', erro:'', ocupado:false}; }
     function abrirEditar(b){ form.value = {id:b.id, empresa:b.empresa, nome:b.nome, whatsapp:b.whatsapp, email:b.email||'', servicos:[...b.servicos], erro:'', ocupado:false}; }
@@ -1518,6 +1706,8 @@ const app = createApp({
       iniciais, dataCurta, dataLonga, dataHora, atrasado, rotStatus, linkZap, linkInsta, rgb, alternar, copiar, brl, brlCurto, deCampo, paraCampo, lucroDe, sugestao,
       entrar, esqueci, salvarSenha, sair, recarregar, marcarVisto, mudarNome, pedirAvisos, abrir, fechar, baixarTodos,
       salvarCampo, mudarStatus, salvarDinheiro, usarTabela, addObs, apagarObs, addTarefa, tarefasPadrao, marcar, apagarTarefa,
+      leads, semLeads, filtroLead, buscaLead, regiaoLead, formLead, LEAD_STATUS, rotLead, regioes, nichos, leadsBase, leadsFeitos, listaLeads, zapLead, mapsLead,
+      salvarLead, alternarContato, abrirLead, salvarFormLead, apagarLead, virarPedido,
       salvarPreco, addPreco, apagarPreco, abrirNovo, abrirEditar, salvarForm, apagarProjeto};
   }
 });
